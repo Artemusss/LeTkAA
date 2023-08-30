@@ -34,7 +34,7 @@ int     VerificationOfAnsvers (int num_tests);
 
 roots   FullSolveQuad         (double a, double b, double c);
 
-int     CountNumberOfTests    (char num);
+int     CountNumberOfTests    (const char* num);
 
 struct coeffs {
         double a;
@@ -55,6 +55,13 @@ struct verif  {
         double x1;
         double x2;
         int    n_Roots;
+};
+
+enum number_of_roots {
+        INFROOTS = -1,
+        NOROOTS,
+        ONEROOT,
+        TWOROOTS
 };
 
 

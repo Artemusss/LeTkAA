@@ -1,30 +1,23 @@
-#include "default.h"
+#include "functions.h"
 
-            /*   TODO
-            1) Доделать логику с аргументами командной строки
-            2) Правильно разбить на файлы
-            3) Гитхаб!
-            4) Makefile
-            5) везде сделать проверки
-            */
+//{---------------------------------------------------------------------------------------------
+//! Основная программа
+//}---------------------------------------------------------------------------------------------
 
-int main(int argc, char* argv[])
+int main(int argc, const char* argv[])
 {
     struct coeffs coef = { NAN, NAN, NAN };
 
     int num_tests = 0;
 
-    char prov[] = "All";
+    char prov[] = "Tests";
 
-    if (atoi(argv[1]) != 0)
-        num_tests = atoi(argv[1]);
-
-    if (strcmp(argv[1], prov))
+    if (!strcmp(argv[0], prov))
     {
-        printf("POVEZLO\n");
-        num_tests = NMAS;
-    }
+        num_tests = CountNumberOfTests(argv[1]);
 
+        VerificationOfAnsvers(num_tests);
+    }
 
     InputCoefs(&coef);
 
@@ -38,7 +31,6 @@ int main(int argc, char* argv[])
 
     OutputAns(Ans);
 
-    VerificationOfAnsvers(num_tests);
 
     return 1;
 }
